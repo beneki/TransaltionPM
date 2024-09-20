@@ -1,0 +1,1 @@
+The translation Project Managment system powered by Angular and .NET.

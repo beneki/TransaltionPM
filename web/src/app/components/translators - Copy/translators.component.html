@@ -1,0 +1,30 @@
+<div class="container mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-4">Translators</h1>
+    <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+        <thead class="bg-gray-100">
+            <tr>
+                <th class="py-2 px-4 border-b">Name</th>
+                <th class="py-2 px-4 border-b">Email</th>
+                <th class="py-2 px-4 border-b">Languages</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (translator of translators; track translator.id) {
+            <tr class="hover:bg-blue-200 dark:hover:bg-gray-600">
+                <td class="py-2 px-4 border-b">{{ translator.firstName }} {{ translator.lastName }}</td>
+                <td class="py-2 px-4 border-b">{{ translator.email }}</td>
+                <td class="py-2 px-4 border-b">
+                    <div class="inline-flex rounded-md shadow-sm" role="group">
+                        @for (language of translator.languages; track $index) {
+                        <div type="button"
+                            class="px-4 py-2 text-sm font-mono border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                            {{language}}
+                        </div>
+                        }
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

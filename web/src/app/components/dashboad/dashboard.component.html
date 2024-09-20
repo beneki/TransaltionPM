@@ -1,0 +1,29 @@
+<div class="container mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-4">Ongoing Projects</h1>
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="bg-gray-100">
+            <tr>
+                <th class="py-2 px-4 border-b">Project Name</th>
+                <th class="py-2 px-4 border-b">Description</th>
+                <th class="py-2 px-4 border-b">Start Date</th>
+                <th class="py-2 px-4 border-b">End Date</th>
+                <th class="py-2 px-4 border-b">Status</th>
+                <th class="py-2 px-4 border-b">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (project of projects; track project.id) {
+            <tr class="hover:bg-blue-200 dark:hover:bg-gray-600 cursor-pointer">
+                <td class="py-2 px-4 border-b">{{ project.name }}</td>
+                <td class="py-2 px-4 border-b">{{ project.description }}</td>
+                <td class="py-2 px-4 border-b">{{ project.startDate }}</td>
+                <td class="py-2 px-4 border-b">{{ project.endDate }}</td>
+                <td class="py-2 px-4 border-b">{{ project.status | status }}</td>
+                <td class="py-2 px-4 border-b">
+                    <a [routerLink]="['/project', project.id]" class="text-blue-500">View</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>>

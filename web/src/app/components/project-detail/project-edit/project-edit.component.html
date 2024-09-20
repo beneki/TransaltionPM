@@ -1,0 +1,38 @@
+<div class="mx-auto p-6 bg-white shadow-lg rounded-lg">
+
+    <div class="mb-4">
+        <label for="name" class="block text-sm font-medium text-gray-700">Name </label>
+        <input id="name" type="text" [(ngModel)]="project.name"
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+    </div>
+
+    <div class="mb-4">
+        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+        <textarea id="description" [(ngModel)]="project.description" rows="4"
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+    </div>
+
+    <div class="mb-4">
+        <label for="startDate" class="block text-sm font-medium text-gray-700">Start Date</label>
+        <input id="startDate" type="date" [(ngModel)]="project.startDate"
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+    </div>
+
+    <div class="mb-4">
+        <label for="endDate" class="block text-sm font-medium text-gray-700">End Date</label>
+        <input id="endDate" type="date" [(ngModel)]="project.endDate"
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+    </div>
+
+    <div class="mb-4">
+        <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
+        <input id="status" type="text" [(ngModel)]="project.status"
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+    </div>
+
+    <button (click)="saveProject()" type="button"
+        class="w-full py-2 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        Save Changes
+    </button>
+
+</div>

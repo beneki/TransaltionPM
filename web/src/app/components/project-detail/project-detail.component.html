@@ -1,0 +1,12 @@
+<div class="container mx-auto p-2">
+    @if (!isEditing) {
+    <app-project-view [project]="project" (edit)="toggleEditMode()"></app-project-view>
+    } @else {
+    <app-project-edit [project]="project!" (save)="toggleEditMode()"></app-project-edit>
+    }
+    @if (id) {
+    <app-project-tasks [projectId]=" id!"></app-project-tasks>
+    }
+
+
+</div>
