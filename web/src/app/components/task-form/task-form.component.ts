@@ -7,11 +7,11 @@ import { Translator } from '../../core/models/translator.model';
 import { FormsModule } from '@angular/forms';
 import { StatusPipe } from '../../utils/status-pipe';
 import { CommonModule } from '@angular/common';
-import { TranslatorsTableComponent } from './../translators-table/translators-table.component'
+import { TranslatorsComponent } from './../translators/translators.component'
 
 @Component({
     standalone: true,
-    imports: [FormsModule, CommonModule, StatusPipe, TranslatorsTableComponent],
+    imports: [FormsModule, CommonModule, StatusPipe, TranslatorsComponent],
     selector: 'app-task-form',
     templateUrl: './task-form.component.html'
 })
