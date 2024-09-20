@@ -139,3 +139,4 @@ D:\apps\translation-project-management\API\TranslationProjectManagement\Translat
 D:\apps\translation-project-management\API\TranslationProjectManagement\TranslationProjectManagement\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\apps\translation-project-management\API\TranslationProjectManagement\TranslationProjectManagement\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\apps\translation-project-management\API\TranslationProjectManagement\TranslationProjectManagement\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+D:\apps\translation-project-management\API\TranslationProjectManagement\TranslationProjectManagement\obj\Debug\net8.0\TranslationProjectManagement.sourcelink.json

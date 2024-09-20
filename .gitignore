@@ -42,3 +42,5 @@
 # System files
 /web/.DS_Store
 /web/Thumbs.db
+/Backups
+.env

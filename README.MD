@@ -1,22 +1,49 @@
-## The translation Project Management system powered by Angular C#, and .NET.
+## Translation Project Management System
 
-### Backend:
+This project is powered by Angular, C#, and .NET, providing a comprehensive solution for translation project management.
 
-*C#*,
-*.NET 8*,
-*Entity FrameworkCore 8.0.8*
+### Technologies Used
 
+#### Backend:
+- **C#**
+- **.NET 8**
+- **Entity Framework Core 8.0.8**
 
-### Databse:
+#### Database:
+- **Microsoft SQL Server**
 
-*Microsoft SQL Server*
+#### Frontend:
+- **Angular 18**
+- **TypeScript**
+- **Tailwind CSS**
+- **ng2-charts**
 
+### Setup Instructions
 
-### Front End:
+Follow these steps to set up the project:
 
-*Angular 18*,
-*Typescript*,
-*Tailwind CSS*,
-*ng2-charts*
+1. Clone the repository:
+   ```bash
+   git clone [repository-url]
+   ```
+2. Rename `example.env` to `.env`.
+3. Set your `DB_PASSWORD` in the `.env` file.
+4. Install Docker if you haven't already.
+5. Open PowerShell and navigate to the `/backups` directory:
+   ```bash
+   cd /path/to/backups
+   ```
+6. Run the backup script:
+   ```bash
+   ./backup.ps1
+   ```
+7. Open the solution file `TranslationProjectManagement.sln` in Visual Studio.
+8. Run the .NET server.
+9. Navigate to the `web` directory and run:
+   ```bash
+   ng serve --open
+   ```
 
-
+### Additional Notes
+- Ensure that Docker is running before executing the backup script.
+- If you encounter any issues, please refer to the project's documentation or contact support.

@@ -1,23 +1,53 @@
 using TranslationProjectManagement.Data;
 using Microsoft.EntityFrameworkCore;
-using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Load environment variables from .env file
+var currentDir = Directory.GetCurrentDirectory();
+var envFilePath = currentDir;
 
+// Move up two levels to get to the parent directory
+for (int i = 0; i < 3; i++)
+{
+    envFilePath = Directory.GetParent(envFilePath).FullName;
+}
 
-// Add services to the container.
+envFilePath = Path.Combine(envFilePath, ".env");
+if (File.Exists(envFilePath))
+{
+    var envVars = File.ReadAllLines(envFilePath);
+    foreach (var envVar in envVars)
+    {
+        var keyValue = envVar.Split('=');
+        if (keyValue.Length == 2)
+        {
+            Environment.SetEnvironmentVariable(keyValue[0], keyValue[1]);
+        }
+    }
+}
+
+// Add configuration for appsettings.json
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+// Replace placeholders with environment variables
+var dbUsername = Environment.GetEnvironmentVariable("DB_USERNAME");
+var dbPassword = Environment.GetEnvironmentVariable("DB_PASSWORD");
+var dbName = Environment.GetEnvironmentVariable("DB_NAME");
+var dbPort = Environment.GetEnvironmentVariable("DB_PORT");
+
+builder.Configuration["ConnectionStrings:DefaultConnection"] = builder!.Configuration["ConnectionStrings:DefaultConnection"]!
+        .Replace("{DB_USERNAME}", dbUsername)
+        .Replace("{DB_PASSWORD}", dbPassword)
+        .Replace("{DB_NAME}", dbName)
+        .Replace("{DB_PORT}", dbPort);
+
 // Add services to the container.
 builder.Services.AddControllers()
         .AddNewtonsoftJson(options =>
         {
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
         });
-//.AddJsonOptions(options =>
-//{
-//    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve; // Handle object cycles
-//    options.JsonSerializerOptions.MaxDepth = 64; // Increase depth if needed
-//});
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -56,5 +86,4 @@ app.UseAuthorization();
 app.UseCors("AllowSpecificOrigin");
 
 app.MapControllers();
-
 app.Run();
