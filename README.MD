@@ -10,7 +10,7 @@ This project is powered by Angular, C#, and .NET, providing a comprehensive solu
 - **Entity Framework Core 8.0.8**
 
 #### Database:
-- **Microsoft SQL Server**
+- **Microsoft SQL Server** (running in Docker)
 
 #### Frontend:
 - **Angular 18**
