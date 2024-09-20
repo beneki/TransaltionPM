@@ -17,14 +17,13 @@ $LogicalLogFile = "${DBName}_log" # Logical log file name
 
 
 # Pull the SQL Server Docker image
-# Write-Host "Pulling SQL Server Docker image..."
-# docker pull mcr.microsoft.com/mssql/server
+Write-Host "Pulling SQL Server Docker image..."
+docker pull mcr.microsoft.com/mssql/server
 
 # Start the SQL Server container (if not already running)
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=$DBPassword" `
-   -p 1433:1433 --name $ContainerName `
+   -p "${DBPort}:1433" --name $ContainerName `
    -d mcr.microsoft.com/mssql/server
-
 
 Write-Host "Backup path is $LocalBackupFile"
 # Wait for SQL Server to start (sleep for 20 seconds)
