@@ -2,8 +2,8 @@
 
 ### Backend:
 
-*C#*
-*.NET 8*
+*C#*,
+*.NET 8*,
 *Entity FrameworkCore 8.0.8*
 
 
@@ -14,8 +14,8 @@
 
 ### Front End:
 
-*Angular 18*
-*Typescript*
+*Angular 18*,
+*Typescript*,
 *ng2-charts*
 
 
