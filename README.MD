@@ -35,7 +35,7 @@ Follow these steps to set up the project:
    ```
 6. Run the backup script:
    ```bash
-   ./backup.ps1
+   ./restore-backup-in-docker.ps1
    ```
 7. Open the solution file `TranslationProjectManagement.sln` in Visual Studio.
 8. Run the .NET server.
