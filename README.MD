@@ -16,6 +16,7 @@
 
 *Angular 18*,
 *Typescript*,
+*Tailwind CSS*,
 *ng2-charts*
 
 
