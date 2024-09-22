@@ -43,10 +43,11 @@ Follow these steps to set up the project:
    ```bash
    npm install
    ```
-10. And then run the Angular project:
+9. And then run the Angular project:
    ```bash
    ng serve --open
    ```
+
 
 ### Additional Notes
 - Ensure that Docker is running before executing the backup script.
