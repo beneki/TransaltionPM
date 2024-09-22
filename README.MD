@@ -39,7 +39,11 @@ Follow these steps to set up the project:
    ```
 7. Open the solution file `TranslationProjectManagement.sln` in Visual Studio.
 8. Run the .NET server.
-9. Navigate to the `web` directory and run:
+9. Navigate to the `web` directory and install dependencies:
+   ```bash
+   npm install
+   ```
+10. And then run the Angular project:
    ```bash
    ng serve --open
    ```
