@@ -1,12 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TranslationProjectManagement.Models.Domain;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using TranslationProjectManagement.Data;
 using Task = TranslationProjectManagement.Models.Domain.Task;
-using Azure.Core;
+
 
 namespace TranslationProjectManagement.Controllers
 {
@@ -208,38 +205,6 @@ namespace TranslationProjectManagement.Controllers
             return NoContent();
         }
 
-        // POST: api/tasks/{taskId}/assignTranslator/{translatorId}
-        [HttpPost("{taskId}/assignTranslator/{translatorId}")]
-        public async Task<IActionResult> AssignTranslatorToTask(Guid taskId, Guid translatorId)
-        {
-            // Fetch the task and translator from the database
-            var task = await _context.Tasks.FindAsync(taskId);
-            var translator = await _context.Translators.FindAsync(translatorId);
-
-            if (task == null || translator == null)
-            {
-                return NotFound("Task or Translator not found.");
-            }
-
-            // Check if the assignment already exists
-            var existingAssignment = await _context.TranslatorTasks
-                .AnyAsync(tt => tt.TaskId == taskId && tt.TranslatorId == translatorId);
-
-            if (!existingAssignment)
-            {
-                // Create the new assignment
-                var translatorTask = new TranslatorTask
-                {
-                    TaskId = taskId,
-                    TranslatorId = translatorId
-                };
-
-                _context.TranslatorTasks.Add(translatorTask);
-                await _context.SaveChangesAsync();
-            }
-
-            return Ok("Translator assigned to task successfully.");
-        }
 
         private bool TaskExists(Guid id)
         {

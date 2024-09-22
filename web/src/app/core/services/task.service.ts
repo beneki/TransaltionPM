@@ -15,12 +15,12 @@ export class TaskService {
         return this.http.post<{ isSuccess: boolean, task: Task }>(this.domain, { task: { ...task, projectId }, translatorId });
     }
 
-    getTasks(taskId: string): Observable<Task[]> {
-        return this.http.get<Task[]>(`${this.domain}?${taskId}`);
+    getTasks(projectId: string): Observable<Task[]> {
+        return this.http.get<Task[]>(`${this.domain}?${projectId}`);
     }
 
-    getTaskById(id: string): Observable<Task> {
-        return this.http.get<Task>(`${this.domain}/${id}`);
+    getTaskById(taskId: string): Observable<Task> {
+        return this.http.get<Task>(`${this.domain}/${taskId}`);
     }
 
     updateTask(task: Task): Observable<{ isSuccess: boolean, task: Task }> {

@@ -14,10 +14,6 @@ interface ProjectCountsByMonth {
 export class ReportService {
     http = inject(HttpClient);
 
-    getProjectsReport(): Observable<Task[]> {
-        return this.http.get<Task[]>('Reports');
-    }
-
     getProjectCountsByYears(firstYear: number, secondYear: number, status: number): Observable<ProjectCountsByMonth> {
         return this.http.get<ProjectCountsByMonth>(`Reports/getProjectCountsByYears/${firstYear}/to/${secondYear}/status/${status}`);
     }

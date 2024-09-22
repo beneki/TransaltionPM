@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TranslationProjectManagement")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3d62654962bb0d558df8a83571d7ce85e895e19a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+04df229855c354822f4ed930907386bc7f3ab2d8")]
 [assembly: System.Reflection.AssemblyProductAttribute("TranslationProjectManagement")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TranslationProjectManagement")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

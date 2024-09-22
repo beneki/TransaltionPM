@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TranslationProjectManagement.Models.Domain;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using TranslationProjectManagement.Data;
-using Task = TranslationProjectManagement.Models.Domain.Task;
 
 namespace TranslationProjectManagement.Controllers
 {
@@ -115,46 +111,5 @@ namespace TranslationProjectManagement.Controllers
             };
         }
 
-
-
-        // GET: api/reports/translator/{translatorId}
-        [HttpGet("translator/{translatorId}")]
-        public async Task<ActionResult<IEnumerable<Task>>> GetTasksByTranslatorReport(Guid translatorId)
-        {
-            // Query to get tasks associated with a given translator through the join table
-            var tasks = await _context.TranslatorTasks
-                .Where(tt => tt.TranslatorId == translatorId)
-                .Select(tt => tt.Task)  // Select tasks related to the translator
-                .Include(t => t.Project)  // Include related project
-                .ToListAsync();
-
-            if (tasks == null || !tasks.Any())
-            {
-                return NotFound("No tasks found for the specified translator.");
-            }
-
-            return Ok(tasks);
-        }
-
-        // GET: api/reports/project/{projectId}
-        [HttpGet("project/{projectId}")]
-        public async Task<ActionResult<IEnumerable<Task>>> GetTasksByProjectReport(Guid projectId)
-        {
-            // Fetch tasks by projectId and include related entities
-            var tasks = await _context.Tasks
-                .Where(t => t.ProjectId == projectId)
-                .Include(t => t.Project) // Include the associated project
-                .Include(t => t.TranslatorTasks) // Include the join table
-                .ThenInclude(tt => tt.Translator) // Include the translator details
-                .ToListAsync();
-
-            // Check if any tasks were found
-            if (tasks == null || !tasks.Any())
-            {
-                return NotFound("No tasks found for the specified project.");
-            }
-
-            return Ok(tasks);
-        }
     }
 }

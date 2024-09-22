@@ -16,9 +16,16 @@ $LogicalDataFile = $DBName   # Logical data file name
 $LogicalLogFile = "${DBName}_log" # Logical log file name
 
 
-# Pull the SQL Server Docker image
-Write-Host "Pulling SQL Server Docker image..."
-docker pull mcr.microsoft.com/mssql/server
+# Check if SQL Server Docker image exists
+$sqlServerImage = "mcr.microsoft.com/mssql/server"
+$imageExists = docker images -q $sqlServerImage
+
+if (-not $imageExists) {
+    Write-Host "Pulling SQL Server Docker image..."
+    docker pull $sqlServerImage
+} else {
+    Write-Host "SQL Server Docker image already exists."
+}
 
 # Start the SQL Server container (if not already running)
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=$DBPassword" `
